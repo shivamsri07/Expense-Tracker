@@ -15,7 +15,7 @@ export default function Login() {
       // setError("")
       // setLoading(true)
       await login()
-      history.push("/")
+      history.push("/dashboard")
     } catch {
       console.log("Failed to log in")
     }

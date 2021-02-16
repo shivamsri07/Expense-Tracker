@@ -13,8 +13,8 @@ function App() {
       <AuthProvider>
         <TransactionContextProvider>
           <Switch>
-            <PrivateRoute exact path="/" component={Index} />
-            <Route path="/login" component={Login} />
+            <PrivateRoute exact path="/expense" component={Index} />
+            <Route path="/" component={Login} />
           </Switch>
         </TransactionContextProvider>
       </AuthProvider>

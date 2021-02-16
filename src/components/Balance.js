@@ -37,7 +37,6 @@ export const Balance = () => {
   const { allTransactions } = useContext(TransactionsContext);
 
   const amounts = allTransactions.map(allTransaction => allTransaction.amount);
-  console.log(amounts)
   const total = amounts.reduce((acc, item) => (acc += item), 0);
 
   return (

@@ -1,11 +1,14 @@
 import app from "./firebase";
 
-const collectionRef = app.firestore().collection("expenses")
 
 export const create = (payload) => {
+    const collectionRef = app.firestore().collection("expenses")
+
     return new Promise((resolve, reject) => {
         collectionRef
-            .doc(payload.id)
+        .doc(payload.uid)
+        .collection("uexpense")
+        .doc(payload.id)
         .set(payload)
         .then((res) => {
             resolve(payload);
@@ -18,12 +21,12 @@ export const create = (payload) => {
 
 
 
-export const list = () => {
-
+export const list = (uid) => {
+    const collectionRef = app.firestore().collection("expenses")
     return new Promise((resolve, reject) => {
         const items = [];
 
-        collectionRef.onSnapshot((querySnapshot) => {
+        collectionRef.doc(uid).collection("uexpense").onSnapshot((querySnapshot) => {
 
             querySnapshot.forEach((doc) => {
                 items.push(doc.data());
@@ -36,9 +39,12 @@ export const list = () => {
 
 
 
-export const remove = (key) => {
+export const remove = (key, uid) => {
+    const collectionRef = app.firestore().collection("expenses")
     return new Promise((resolve, reject) => {
         collectionRef
+        .doc(uid)
+        .collection("uexpense")
             .doc(key)
             .delete()
             .then(() => {

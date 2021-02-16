@@ -7,7 +7,7 @@ export const create = (payload) => {
     return new Promise((resolve, reject) => {
         collectionRef
         .doc(payload.uid)
-        .collection("uexpense")
+        .collection("expense")
         .doc(payload.id)
         .set(payload)
         .then((res) => {
@@ -26,7 +26,10 @@ export const list = (uid) => {
     return new Promise((resolve, reject) => {
         const items = [];
 
-        collectionRef.doc(uid).collection("uexpense").onSnapshot((querySnapshot) => {
+        collectionRef
+        .doc(uid)
+        .collection("expense")
+        .onSnapshot((querySnapshot) => {
 
             querySnapshot.forEach((doc) => {
                 items.push(doc.data());
@@ -44,10 +47,10 @@ export const remove = (key, uid) => {
     return new Promise((resolve, reject) => {
         collectionRef
         .doc(uid)
-        .collection("uexpense")
-            .doc(key)
-            .delete()
-            .then(() => {
+        .collection("expense")
+        .doc(key)
+        .delete()
+        .then(() => {
                 resolve(true)
             })
             .catch((err) => {

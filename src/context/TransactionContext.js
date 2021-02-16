@@ -9,13 +9,7 @@ const TransactionsContextProvider = ({ children }) => {
     const [transactions, setTransactions] = useState([]);
     const [allTransactions, setAllTransactions] = useState([]);
     const {currentUser} = useAuth()
-    const loadStorage = async () => {
-        if(currentUser){
-        const records = await list(currentUser.email);
-        setAllTransactions(records)
-        }
-    }
-
+ 
 
 
     const addTransaction = async ({ uid, id, text, amount }) => {
@@ -41,9 +35,18 @@ const TransactionsContextProvider = ({ children }) => {
     }
 
 
-    useEffect(() => {
-        loadStorage();
-    }, [allTransactions]);
+    useEffect(()=>{
+        async function loadStorage(){
+        try{
+            const records = await list(currentUser.email);
+            setAllTransactions(records)
+        }
+        catch{
+            console.log("Sign in to view your transaction")
+        }
+
+    }loadStorage()
+}, [currentUser, allTransactions])
 
     return (
         <TransactionsContext.Provider value={{ allTransactions, transactions, addTransaction, deleteTransaction }}>

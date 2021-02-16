@@ -19,11 +19,15 @@ export function AuthProvider({ children }) {
     return app.auth().signOut()
   }
 
+
+
   useEffect(() => {
     const unsubscribe = app.auth().onAuthStateChanged(user => {
       setCurrentUser(user)
       setLoading(false)
     })
+
+    return unsubscribe
   }, [])
 
   const value = {

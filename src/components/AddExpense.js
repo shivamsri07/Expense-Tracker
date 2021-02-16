@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { TransactionsContext } from '../context/TransactionContext';
 import { v4 as uuidv4 } from 'uuid'
 import {useAuth} from '../context/AuthProvider'
@@ -7,12 +7,6 @@ export const AddExpense = () => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
   const {currentUser} = useAuth();
-
-
-  useEffect(() => {
-    console.log(currentUser.email)
-  }, [])
-
   const { addTransaction } = useContext(TransactionsContext);
 
   const onSubmit = e => {

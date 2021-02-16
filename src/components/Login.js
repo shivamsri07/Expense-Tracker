@@ -2,7 +2,11 @@ import React from "react"
 import { useAuth } from "../context/AuthProvider"
 import { useHistory } from "react-router-dom"
 import GoogleButton from 'react-google-button'
-
+import { Header } from './Header';
+import { Balance } from './Balance';
+import { IncomeExpense } from './IncomeExpense';
+import { ExpenseList } from './ExpenseList';
+import { HomeAddExpense } from './HomeAddExpense';
 
 export default function Login() {
   const { login } = useAuth()
@@ -21,8 +25,14 @@ export default function Login() {
     }
     //setLoading(false)
   }
-  return (
+  return (<>
     <GoogleButton onClick={handleSubmit} />
-  )
+    <Header/>
+    <Balance/>
+    <IncomeExpense/>
+    <ExpenseList/>
+    <HomeAddExpense/>
+  </>
+  );
 
 }

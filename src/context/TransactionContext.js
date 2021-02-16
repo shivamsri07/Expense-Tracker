@@ -42,6 +42,7 @@ const TransactionsContextProvider = ({ children }) => {
             setAllTransactions(records)
         }
         catch{
+            setAllTransactions([])
             console.log("Sign in to view your transaction")
         }
 
@@ -49,7 +50,7 @@ const TransactionsContextProvider = ({ children }) => {
 }, [currentUser, allTransactions])
 
     return (
-        <TransactionsContext.Provider value={{ allTransactions, transactions, addTransaction, deleteTransaction }}>
+        <TransactionsContext.Provider value={{ allTransactions, transactions, addTransaction, deleteTransaction, setAllTransactions }}>
             {children}
         </TransactionsContext.Provider>
     );

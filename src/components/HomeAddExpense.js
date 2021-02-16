@@ -1,42 +1,34 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { TransactionsContext } from '../context/TransactionContext';
-import { v4 as uuidv4 } from 'uuid'
+import React, { useState, useEffect } from 'react'
 import {useAuth} from '../context/AuthProvider'
 
 
-export const AddExpense = () => {
+export const HomeAddExpense = () => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
   const {currentUser} = useAuth();
-  const { addTransaction } = useContext(TransactionsContext);
   const [refresh, setRefresh] = useState('false')
+
   const onSubmit = e => {
     e.preventDefault();
 
     if(!currentUser){
       alert('Please sign in to save this transaction!')
-      return;
-    }
-    if(text===''){
-      alert("Please enter a transaction!")
-      return;
-    }
-    const newTransaction = {
-      uid: currentUser.email,
-      id: uuidv4(),
-      text,
-      amount: +amount
-    }
-      addTransaction(newTransaction);
       setRefresh(!refresh)
 
+      return;
+    
     }
 
 
-  useEffect(() => {
+}
+
+
+useEffect(() => {
     setText('')
     setAmount(0)
   }, [refresh])
+
+
 
   return (
     <>

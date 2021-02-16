@@ -6,14 +6,14 @@ import { AddExpense } from './AddExpense';
 import { useAuth } from '../context/AuthProvider'
 const Index = () => {
 
-    const { logout } = useAuth()
+    const { logout, currentUser } = useAuth()
 
     const clickHandler = () => {
         logout()
     }
     return (
         <div>
-            <button className='btn' onClick={clickHandler}>Sign Out</button>
+            <button className='btn' onClick={clickHandler}>Sign Out ({currentUser.email})</button>
             <Header />
             <Balance />
             <IncomeExpense />

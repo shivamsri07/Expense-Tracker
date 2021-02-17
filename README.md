@@ -17,7 +17,7 @@ https://track-expense-react.netlify.app/login
   - `AuthProvider` is used to pass down the `Current User` information.
   - `TransactionContext` is used to pass down the `Expense` state that stores the expense details.
 - Have used `React Hooks` to effectively manage states and rendering of components.
-
+- Routing is done with the help of `React-Router`
 ______________________________________________________________________________________________________________________
 
 ## Available Scripts

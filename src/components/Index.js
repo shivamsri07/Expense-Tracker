@@ -13,7 +13,7 @@ const Index = () => {
     }
     return (
         <div>
-            <button className='btn' onClick={clickHandler}>Sign Out ({currentUser.email})</button>
+            <button className='btn' style={{background: "#9c88ff"}} onClick={clickHandler}>Sign Out ({currentUser.email})</button>
             <Header />
             <Balance />
             <IncomeExpense />

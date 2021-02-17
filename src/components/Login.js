@@ -26,7 +26,7 @@ export default function Login() {
     //setLoading(false)
   }
   return (<>
-    <GoogleButton onClick={handleSubmit} />
+    <GoogleButton style = {{ fontFamily:'sans-serif' }} onClick={handleSubmit} />
     <Header/>
     <Balance/>
     <IncomeExpense/>

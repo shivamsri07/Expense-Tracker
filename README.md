@@ -1,11 +1,11 @@
-# Expense-Tracker
+# `Expense-Tracker`
 
 ## `Stack used`
 
 1. ReactJS 
 2. Firebase
 
-## Overview
+## `Overview`
 
 - This app is created with `ReactJS` and backend has been served on `Firebase`
 - On the home page you can find `Google Authentication`. Only after logging in you can add/view/delete the expenses.
@@ -15,6 +15,7 @@
   - `TransactionContext` is used to pass down the `Expense` state that stores the expense details.
 - Have used `React Hooks` to effectively manage states and rendering of components.
 
+______________________________________________________________________________________________________________________
 
 ## Available Scripts
 

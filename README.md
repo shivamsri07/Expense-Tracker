@@ -1,6 +1,9 @@
 # `Expense-Tracker`
 
-## `Stack used`
+This app lets you manage your expenses in a hassle-free way. You can add/view/delete your transactions and can also see the flow of income/expenses. All you need to do is to sign in with your google account.<br><br>
+https://track-expense-react.netlify.app/login
+
+## `Technology Stack used`
 
 1. ReactJS 
 2. Firebase

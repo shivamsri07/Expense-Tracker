@@ -14,8 +14,8 @@ This app lets you manage your expenses in a hassle-free way. You can add/view/de
 - On the home page you can find `Google Authentication`. Only after logging in you can add/view/delete the expenses.
 - Data is saved on firebase NoSQL database.
 - Used `Context API` for prop drilling. 
-  - `AuthProvider` is used to pass down the `Current User` information.
-  - `TransactionContext` is used to pass down the `Expense` state that stores the expense details.
+  - `AuthProvider Context` is used to pass down the `Current User` information.
+  - `Transaction Context` is used to pass down the `Expense` state that stores the expense details.
 - Have used `React Hooks` to effectively manage states and rendering of components.
 - Routing is done with the help of `React-Router`
 ______________________________________________________________________________________________________________________
